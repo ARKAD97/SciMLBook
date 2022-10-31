@@ -1,68 +1,42 @@
 +++
-title = "Parallel Computing and Scientific Machine Learning (SciML): Methods and Applications"
-descr = "Parallel Computing and Scientific Machine Learning (SciML): Methods and Applications, MIT Course 18.337J/6.338J. Includes physics-informed learning, scientific machine learning, science-guided AI, neural differential equations, and more."
-rss = "Parallel Computing and Scientific Machine Learning (SciML): Methods and Applications, MIT Course 18.337J/6.338J. Includes physics-informed learning, scientific machine learning, science-guided AI, neural differential equations, and more."
-weave = false
+title = "Julia Tutorials Template"
+tags = ["code", "tutorials"]
 +++
 
-# Parallel Computing and Scientific Machine Learning (SciML): Methods and Applications
+# Julia Tutorials Template
 
-**This book is a compilation of lecture notes from the MIT Course 18.337J/6.338J: Parallel Computing and Scientific Machine Learning.
-Links to the old notes https://mitmath.github.io/18337 will redirect here**
+This is a template repository which can be used to create Julia tutorials websites.
+To use this website as a template, go to
+<https://github.com/rikhuijzer/JuliaTutorialsTemplate>
+and click on the big "Use this template" button.
 
-[This repository]({{ source_url }}) is meant to be a
-live document, updating to continuously add the latest details on methods from
-the field of scientific machine learning and the latest techniques for
-high-performance computing.
+Some general information is provided below.
+For more in-depth instructions about how to use this template, see [Getting started](/getting-started).
 
-\note{
-    You can help improve this course!
-    \\
-    Please [**report mistakes**](https://github.com/SciML/SciMLBook/issues/new?assignees=&labels=bug&template=bug-report.md&title=Fix+Mistake) you find in the content.
-    \\
-    Similarly, [**suggest improvements**](https://github.com/SciML/SciMLBook/issues/new?assignees=&labels=enhancement&template=feature_request.md&title=New+Feature) to the organization and navigation of this site.
-}
+## What does this template do?
 
-## Introduction to Parallel Computing and Scientific Machine Learning
+This template contains multiple Pluto notebooks in the `tutorials` folder.
+These tutorials are listed on the left side of this webpage.
+Here,
 
-There are two main branches of technical computing: machine learning and
-scientific computing. Machine learning has received a lot of hype over the
-last decade, with techniques such as convolutional neural networks and TSne
-nonlinear dimensional reductions powering a new generation of data-driven
-analytics. On the other hand, many scientific disciplines carry on with
-large-scale modeling through differential equation modeling, looking at
-stochastic differential equations and partial differential equations describing
-scientific laws.
+1. each tutorial is created and updated in [Pluto.jl](https://github.com/fonsp/Pluto.jl), which is super easy and convenient ✔️,
+1. evaluated and converted to Markdown files in parallel and with caching (for speed 🚀) by [PlutoStaticHTML.jl](https://github.com/rikhuijzer/PlutoStaticHTML.jl) _and_
+1. the tutorials are embedded in a nice website by [Franklin.jl](https://github.com/tlienart/Franklin.jl) 😎.
 
-However, there has been a recent convergence of the two disciplines. This field,
-scientific machine learning, has been showcasing results like how partial
-differential equation simulations can be accelerated with neural networks.
-New methods, such as probabilistic and differentiable programming, have
-started to be developed specifically for enhancing the tools of this domain.
-However, the techniques in this field combine two huge areas of computational
-and numerical practice, meaning that the methods are sufficiently complex.
-How do you backpropagate an ODE defined by neural networks? How do you perform
-unsupervised learning of a scientific simulator?
+These steps all run in an automated workflow, so changing a file in your copy of this template will cause the notebooks to be evaluated again (or not, if nothing changed since the last run).
 
-In this class we will dig into the methods and understand what they do, why
-they were made, and thus how to integrate numerical methods across fields to
-accentuate their pros while mitigating their cons. This class will be a survey
-of the numerical techniques, showcasing how many disciplines are doing the
-same thing under different names, and using a common mathematical language
-to derive efficient routines which capture both data-driven and mechanistic-based
-modeling.
+## How can I make my own tutorials?
 
-However, these methods will quickly run into a scaling issue if naively coded.
-To handle this problem, everything will have a focus on performance-engineering.
-We will start by focusing on algorithm which are inherently serial and
-learn to optimize serial code. Then we will showcase how logic-heavy
-code can be parallelized through multithreading and distributed computing
-techniques like MPI, while direct mathematical descriptions can be parallelized
-through GPU computing.
+- Copy the [template](https://github.com/rikhuijzer/JuliaTutorialsTemplate) by clicking on big "Use this template" button.
+- Replace the Pluto notebooks (`.jl` files) inside `tutorials` by your own tutorials.
+- Change the menu at `layout/menu.html` to point to the right tutorials.
+- Modify any text however you like, the source code has an MIT license.
+- GitHub will take your tutorials and convert them automatically to a pretty website.
 
-The final part of the course will be a unique project which pulls together these
-techniques. As a new field, the students will be exposed to the "low hanging
-fruit" and will be directed towards an area which they can make a quick impact.
-For the final project, students will team up to solve a new problem in the field of
-scientific machine learning, and receive helping writing up a publication-quality
-analysis about their work.
+## What alternatives are there to this template?
+
+There is a template by Fons van der Plas at <https://github.com/JuliaPluto/static-export-template>.
+That template is easier to use, sticks closer to the original Pluto appearance and has a link to a Binder for each notebook.
+In contrast, this template provides more flexibility in appearance and is more suitable for people who like to style their output or who even want to hide all code.
+Also, this template assumes some knowledge about GitHub Actions and hosting a website via GitHub Pages.
+
